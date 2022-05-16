@@ -6,6 +6,9 @@
   "homepage": "",
   "license": "ISC",
   "main": "lib/core.js",
+  "bin": {
+    "avgf": "bin/index.js"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
