@@ -1,6 +1,6 @@
 {
   "name": "@avgf/core",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "@avgf/core",
   "author": "xg-a06 <xg_jser@163.com>",
   "homepage": "",
@@ -20,6 +20,6 @@
     "test": "echo \"run core testing\""
   },
   "dependencies": {
-    "@avgf/utils": "^0.1.1"
+    "@avgf/utils": "^0.1.3"
   }
 }
