@@ -1,15 +1,6 @@
-0 silly argv {
-0 silly argv   _: [ 'create' ],
-0 silly argv   lernaVersion: '4.0.0',
-0 silly argv   '$0': '/Users/g/self/avgf/node_modules/.bin/lerna',
-0 silly argv   name: 'core'
-0 silly argv }
-1 notice cli v4.0.0
-2 verbose rootPath /Users/g/self/avgf
-3 error Error: Command failed with exit code 1: git config --get user.name
-3 error     at makeError (/Users/g/self/avgf/node_modules/execa/lib/error.js:60:11)
-3 error     at Function.module.exports.sync (/Users/g/self/avgf/node_modules/execa/index.js:194:17)
-3 error     at Object.execSync (/Users/g/self/avgf/node_modules/@lerna/child-process/index.js:39:16)
-3 error     at CreateCommand.gitConfig (/Users/g/self/avgf/node_modules/@lerna/create/index.js:181:25)
-3 error     at CreateCommand.initialize (/Users/g/self/avgf/node_modules/@lerna/create/index.js:103:46)
-3 error     at /Users/g/self/avgf/node_modules/@lerna/command/index.js:274:24
+42 error Error: Command failed with exit code 128: git tag v0.1.1 -m v0.1.1
+42 error fatal: tag 'v0.1.1' already exists
+42 error     at makeError (/Users/g/self/avgf/node_modules/execa/lib/error.js:60:11)
+42 error     at handlePromise (/Users/g/self/avgf/node_modules/execa/index.js:118:26)
+42 error     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+42 error     at async Promise.all (index 0)
