@@ -1,0 +1,19 @@
+{
+  "name": "@avgf/utils",
+  "version": "0.1.0",
+  "description": "@avgf/utils",
+  "author": "xg-a06 <xg_jser@163.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"run utils testing\""
+  }
+}
