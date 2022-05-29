@@ -19,5 +19,10 @@
   "gitHead": "15436e9e525a0a08e64afa57c7e040002211c21b",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "npmlog": "^6.0.2",
+    "semver": "^7.3.7"
   }
 }

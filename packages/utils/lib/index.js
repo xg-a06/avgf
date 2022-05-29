@@ -1,7 +1,9 @@
 'use strict';
 
-module.exports = utils;
+const logger = require('./log');
+const npm = require('./npm');
 
-function utils() {
-    // TODO
-}
+module.exports = {
+  logger,
+  npm,
+};

@@ -20,7 +20,15 @@
     "test": "echo \"run core testing\""
   },
   "dependencies": {
-    "@avgf/utils": "^0.1.4"
+    "@avgf/utils": "^0.1.4",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.1",
+    "import-local": "^3.1.0",
+    "minimist": "^1.2.6",
+    "path-exists": "^4.0.0",
+    "root-check": "^1.0.0",
+    "semver": "^7.3.7",
+    "user-home": "^3.0.0"
   },
   "gitHead": "15436e9e525a0a08e64afa57c7e040002211c21b",
   "publishConfig": {
