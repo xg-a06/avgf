@@ -9,9 +9,14 @@ const userHome = require('user-home');
 const pathExists = require('path-exists');
 const minimist = require('minimist');
 const dotenv = require('dotenv');
+const commander = require('commander');
 const { logger, npm } = require('@avgf/utils');
+const { init } = require('@avgf/command');
+const exec = require('@avgf/exec');
 const { LIMIT_NODE_VERSION, DEFAULT_CLI_HOME } = require('./const');
 const pkg = require('../package.json');
+
+const program = new commander.Command();
 
 const core = async () => {
   try {
@@ -19,8 +24,9 @@ const core = async () => {
     checkNodeVersion();
     checkRoot();
     checkUserHome();
-    checkArgs();
+    // checkArgs();
     checkEnv();
+    registerCommand();
   } catch (e) {
     logger.error(e.message);
   }
@@ -55,24 +61,22 @@ const checkNodeVersion = () => {
 
 const checkRoot = () => {
   rootCheck();
-  console.log(process.geteuid());
 };
 
 const checkUserHome = () => {
-  console.log(userHome);
   if (!userHome || !pathExists(userHome)) {
     throw new Error(colors.red(`当前登录用户主目录不存在！  `));
   }
 };
 
-const checkArgs = () => {
-  const args = minimist(process.argv.slice(2));
-  if (args.debug) {
-    process.env.LOG_LEVEL = 'verbose';
-    logger.level = process.env.LOG_LEVEL;
-  }
-  logger.verbose('test');
-};
+// const checkArgs = () => {
+//   const args = minimist(process.argv.slice(2));
+//   if (args.debug) {
+//     process.env.LOG_LEVEL = 'verbose';
+//     logger.level = process.env.LOG_LEVEL;
+//   }
+//   logger.verbose('test');
+// };
 
 const createDefaultConfig = () => {
   const config = {
@@ -92,7 +96,41 @@ const checkEnv = () => {
     dotenv.config({ path: envPath });
   }
   createDefaultConfig();
-  console.log(process.env.CLI_HOME_PATH);
+};
+
+const registerCommand = () => {
+  program
+    .name(Object.keys(pkg.bin)[0])
+    .usage('<command> [options]')
+    .version(pkg.version)
+    .option('-d, --debug', '开启调试模式', false);
+
+  program
+    .command('init <projectName>')
+    .option('-f, --force', '是否强制初始化', false)
+    .option('-fp, --filePath <filePath>', '本地文件路径', '')
+    .action(exec);
+
+  program.on('option:debug', () => {
+    process.env.LOG_LEVEL = 'info';
+    if (program.opts().debug) {
+      process.env.LOG_LEVEL = 'verbose';
+    }
+    logger.level = process.env.LOG_LEVEL;
+    logger.verbose('test');
+  });
+
+  program.on('command:*', (cmds) => {
+    const commands = program.commands.map((cmd) => cmd.name());
+    logger.error(`未知的命令: ${cmds[0]}`);
+    if (commands.length > 0) {
+      logger.info(`可用的命令有: ${commands.join(',')}`);
+    }
+  });
+  program.parse(process.argv);
+  if (program.args.length < 1) {
+    program.outputHelp();
+  }
 };
 
 module.exports = core;

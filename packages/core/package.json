@@ -21,7 +21,10 @@
   },
   "dependencies": {
     "@avgf/utils": "^0.1.4",
+    "@avgf/command": "^0.1.4",
+    "@avgf/exec": "^0.1.4",
     "colors": "^1.4.0",
+    "commander": "^9.3.0",
     "dotenv": "^16.0.1",
     "import-local": "^3.1.0",
     "minimist": "^1.2.6",

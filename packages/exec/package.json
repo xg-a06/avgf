@@ -1,0 +1,30 @@
+{
+  "name": "@avgf/exec",
+  "version": "0.1.4",
+  "description": "@avgf/exec",
+  "author": "xg-a06 <xg_jser@163.com>",
+  "homepage": "https://github.com/xg-a06/avgf#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xg-a06/avgf.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/xg-a06/avgf/issues"
+  },
+  "dependencies": {
+    "@avgf/utils": "^0.1.4",
+    "@avgf/command": "^0.1.4"
+  }
+}
